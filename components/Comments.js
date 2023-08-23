@@ -67,17 +67,6 @@ const Comments = ({ frontMatter }) => {
           }}
         />
       )}
-
-      {/* Waline Comments */}
-      <div id="waline"></div>
-      <script type="module">
-        import { init } from 'https://unpkg.com/@waline/client@v2/dist/waline.mjs';
-
-        init({
-          el: '#waline',
-          serverURL: 'https://your-domain.vercel.app',
-        });
-      </script>
     </div>
   )
 }
