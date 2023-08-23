@@ -31,26 +31,12 @@ const Comments = ({ frontMatter }) => {
   const fullWidth = frontMatter.fullWidth ?? false
 
   return (
-      <link
-    rel="stylesheet"
-    href="https://unpkg.com/@waline/client@v2/dist/waline.css"
-  />
     <div
       className={cn(
         'px-4 font-medium text-gray-500 dark:text-gray-400 my-5',
         fullWidth ? 'md:px-24' : 'mx-auto max-w-2xl',
       )}
     >
-        <div id="waline"></div>
-    <script type="module">
-    import { init } from 'https://unpkg.com/@waline/client@v2/dist/waline.mjs';
-
-    init({
-      el: '#waline',
-      serverURL: 'https://comment.api.tzih.top',
-    });
-
-        
       {BLOG.comment && BLOG.comment.provider === 'gitalk' && (
         <GitalkComponent
           options={{
@@ -81,6 +67,17 @@ const Comments = ({ frontMatter }) => {
           }}
         />
       )}
+
+      {/* Waline Comments */}
+      <div id="waline"></div>
+      <script type="module">
+        import { init } from 'https://unpkg.com/@waline/client@v2/dist/waline.mjs';
+
+        init({
+          el: '#waline',
+          serverURL: 'https://your-domain.vercel.app',
+        });
+      </script>
     </div>
   )
 }
